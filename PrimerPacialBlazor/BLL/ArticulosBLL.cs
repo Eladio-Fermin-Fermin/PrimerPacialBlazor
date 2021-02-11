@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PrimerPacialBlazor.DAL;
+using PrimerPacialBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,39 @@ namespace PrimerPacialBlazor.BLL
             return encontrado;
         }
 
+        //Metodo Insertar.
+        public async Task<bool> Insertar(Articulos articulos)
+        {
+            bool paso = false;
+            try
+            {
+                await contexto.Articulos.AddAsync(articulos);
+                paso = await contexto.SaveChangesAsync() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
+            return paso;
+        }
 
+        //Metodo Modificar.
+        private async Task<bool> Modificar(Articulos articulos)
+        {
+            bool paso = false;
+            try
+            {
+                contexto.Entry(articulos).State = EntityState.Modified;
+                paso = await contexto.SaveChangesAsync() > 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
+        }
 
 
     }
