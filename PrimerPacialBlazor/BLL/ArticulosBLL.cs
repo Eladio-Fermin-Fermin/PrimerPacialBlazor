@@ -66,6 +66,15 @@ namespace PrimerPacialBlazor.BLL
             return paso;
         }
 
+        //Guardar
+        public async Task<bool> Guardar(Articulos articulos)
+        {
+            if (!await Existe(articulos.ArticuloId))
+                return await Insertar(articulos);
+            else
+                return await Modificar(articulos);
+        }
+
 
     }
 }
