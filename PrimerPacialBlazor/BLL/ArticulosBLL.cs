@@ -91,6 +91,28 @@ namespace PrimerPacialBlazor.BLL
             return articulos;
         }
 
+        //Eliminar
+        public async Task<bool> Eliminar(int id)
+        {
+            bool paso = false;
+            try
+            {
+                var articulo = await contexto.Articulos.FindAsync(id);
+                if(articulo != null)
+                {
+                    contexto.Articulos.Remove(articulo);
+                    paso = await contexto.SaveChangesAsync() > 0;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
+        }
+
+
 
 
 
