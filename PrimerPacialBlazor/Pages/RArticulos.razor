@@ -30,4 +30,32 @@
         this.articulos = new Articulos();
     }
 
+    public async void Buscar()
+    {
+        var articulo = await articulosBLL.Buscar(articulos.ArticuloId);
+        if(articulo != null)
+        {
+            this.articulos = articulo;
+        }
+        else
+        {
+            Toast.ShowInfo("No se encontro el registro");
+        }
+    }
+
+    public async void Guardar()
+    {
+        if (await articulosBLL.Guardar(articulos))
+        {
+            Toast.ShowSuccess("Guardado");
+            Limpiar();
+        }
+        else
+        {
+            Toast.ShowError("No fue posible guardar");
+        }
+    }
+
+
+
 }
