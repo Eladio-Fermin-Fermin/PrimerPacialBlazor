@@ -11,10 +11,35 @@
         </div>
 
         <div class="card-body">
+            <form>
+
+                @*ArticuloId*@
+                <div class="form-row align-items-center">
+                    <div class="form-group">
+                        <label>Articulo Id</label>
+                        <div class="input-group">
+                            <InputNumber @bind-Value="articulos.ArticuloId" class="form-control" />
+                            <div class="input-group-append">
+                                <button type="button" style="z-index:0" class="btn btn-secondary input-group-text" @onclick="Buscar">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*Descripcion*@
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <InputTextArea @bind-Value="articulos.Descripcion" class="form-control" />
+                    <ValidationMessage For="@(() => articulos.Descripcion)" />
+                </div>
+
+                @**@
 
 
-
+            </form>
         </div>
+
+
 
     </EditForm>
 
