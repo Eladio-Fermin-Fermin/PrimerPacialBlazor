@@ -1,0 +1,33 @@
+﻿@page "/Articulos"
+@page "/Articulo/{ArticuloId:int}"
+
+@inject IToastService Toast
+
+<h3>RArticulos</h3>
+
+@code {
+
+    Articulos articulos = new Articulos();
+
+    [Parameter]
+    public int ArticuloId { get; set; }
+
+    [Inject]
+    private ArticulosBLL articulosBLL { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Nuevo();
+    }
+
+    public void Nuevo()
+    {
+        Limpiar();
+    }
+
+    public void Limpiar()
+    {
+        this.articulos = new Articulos();
+    }
+
+}
