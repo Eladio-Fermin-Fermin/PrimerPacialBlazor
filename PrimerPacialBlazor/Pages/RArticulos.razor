@@ -33,8 +33,26 @@
                     <ValidationMessage For="@(() => articulos.Descripcion)" />
                 </div>
 
-                @**@
+                @*Existencia*@
+                <div class="form-group">
+                    <label>Existencia</label>
+                    <InputNumber @bind-Value="articulos.Existencia" class="form-control" />
+                    <ValidationMessage For="@(() => articulos.Existencia)" />
+                </div>
 
+                @*Costo*@
+                <div class="form-group">
+                    <label>Costo</label>
+                    <InputNumber @bind-Value="articulos.Costo" class="form-control" />
+                    <ValidationMessage For="(() => articulos.Costo)" />
+                </div>
+
+                @*ValorInventario*@
+                <div class="form-group">
+                    <label>Valor Inventario</label>
+                    <InputNumber @bind-Value="articulos.ValorInventario" class="form-control" readOnly="true" />
+                    <ValidationMessage For="(() => articulos.ValorInventario)" />
+                </div>
 
             </form>
         </div>
