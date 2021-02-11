@@ -10,11 +10,11 @@ namespace PrimerPacialBlazor.Models
     {
         [Key]
         public int ArticuloId { get; set; }
-        [Required(ErrorMessage = "Es obligatorio introduccir un descripcion.")]
+        [Required(ErrorMessage = "Es obligatorio introduccir una descripcion.")]
         public string Descripcion { get; set; }
         [Required(ErrorMessage = "Es obligatorio introduccir una existencia.")]
         public int Existencia { get; set; }
-        [Required(ErrorMessage = "Es obligatorio introduccir una costo.")]
+        [Required(ErrorMessage = "Es obligatorio introduccir un costo.")]
         public double Costo { get; set; }
         public double ValorInventario { get; set; }
     }
