@@ -6,61 +6,64 @@
 <div class="shadow-lg p-3 mb-5 bg-white rounded">
     <EditForm Model="articulos" OnInvalidSubmit="Guardar">
         <DataAnnotationsValidator />
-        <div class="card-header">
-            <h2>Registro de Articulos</h2>
-        </div>
+        <div class="card">
 
-        <div class="card-body">
-            <form>
+            <div class="card-header">
+                <h2>Registro de Articulos</h2>
+            </div>
 
-                @*ArticuloId*@
-                <div class="form-row align-items-center">
-                    <div class="form-group">
-                        <label>Articulo Id</label>
-                        <div class="input-group">
-                            <InputNumber @bind-Value="articulos.ArticuloId" class="form-control" />
-                            <div class="input-group-append">
-                                <button type="button" style="z-index:0" class="btn btn-secondary input-group-text" @onclick="Buscar">Buscar</button>
+            <div class="card-body">
+                <form>
+
+                    @*ArticuloId*@
+                    <div class="form-row align-items-center">
+                        <div class="form-group">
+                            <label>Articulo Id</label>
+                            <div class="input-group">
+                                <InputNumber @bind-Value="articulos.ArticuloId" class="form-control" />
+                                <div class="input-group-append">
+                                    <button type="button" style="z-index:0" class="btn btn-secondary input-group-text" @onclick="Buscar">Buscar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                @*Descripcion*@
-                <div class="form-group">
-                    <label>Descripción</label>
-                    <InputTextArea @bind-Value="articulos.Descripcion" class="form-control" />
-                    <ValidationMessage For="@(() => articulos.Descripcion)" />
-                </div>
+                    @*Descripcion*@
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <InputTextArea @bind-Value="articulos.Descripcion" class="form-control" />
+                        <ValidationMessage For="@(() => articulos.Descripcion)" />
+                    </div>
 
-                @*Existencia*@
-                <div class="form-group">
-                    <label>Existencia</label>
-                    <InputNumber @bind-Value="articulos.Existencia" class="form-control" />
-                    <ValidationMessage For="@(() => articulos.Existencia)" />
-                </div>
+                    @*Existencia*@
+                    <div class="form-group">
+                        <label>Existencia</label>
+                        <InputNumber @bind-Value="articulos.Existencia" class="form-control" />
+                        <ValidationMessage For="@(() => articulos.Existencia)" />
+                    </div>
 
-                @*Costo*@
-                <div class="form-group">
-                    <label>Costo</label>
-                    <InputNumber @bind-Value="articulos.Costo" class="form-control" />
-                    <ValidationMessage For="(() => articulos.Costo)" />
-                </div>
+                    @*Costo*@
+                    <div class="form-group">
+                        <label>Costo</label>
+                        <InputNumber @bind-Value="articulos.Costo" class="form-control" />
+                        <ValidationMessage For="(() => articulos.Costo)" />
+                    </div>
 
-                @*ValorInventario*@
-                <div class="form-group">
-                    <label>Valor Inventario</label>
-                    <InputNumber @bind-Value="articulos.ValorInventario" class="form-control" readOnly="true" />
-                    <ValidationMessage For="(() => articulos.ValorInventario)" />
-                </div>
+                    @*ValorInventario*@
+                    <div class="form-group">
+                        <label>Valor Inventario</label>
+                        <InputNumber @bind-Value="articulos.ValorInventario" class="form-control" readOnly="true" />
+                        <ValidationMessage For="(() => articulos.ValorInventario)" />
+                    </div>
 
-            </form>
+                </form>
+            </div>
+
+
+
         </div>
 
-
-
     </EditForm>
-
 </div>
 
 <h3>RArticulos</h3>
