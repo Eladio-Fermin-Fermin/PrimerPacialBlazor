@@ -126,6 +126,17 @@
         }
     }
 
-
+    public async void Eliminar()
+    {
+        if (await articulosBLL.Eliminar(articulos.ArticuloId))
+        {
+            Toast.ShowSuccess("Eliminado correctamente.");
+            Limpiar();
+        }
+        else
+        {
+            Toast.ShowError("No fue posible eliminar.");
+        }
+    }
 
 }
