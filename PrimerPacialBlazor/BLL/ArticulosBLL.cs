@@ -4,6 +4,7 @@ using PrimerPacialBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace PrimerPacialBlazor.BLL
@@ -112,9 +113,37 @@ namespace PrimerPacialBlazor.BLL
             return paso;
         }
 
+        //GetList
+        public async Task<List<Articulos>> GetArticulos()
+        {
+            List<Articulos> lista = new List<Articulos>();
+            try
+            {
+                lista = await contexto.Articulos.ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
+            return lista;
+        }
 
+        public async Task<List<Articulos>> GetArticulos(Expression<Func<Articulos, bool>> criterio)
+        {
+            List<Articulos> lista = new List<Articulos>();
 
+            try
+            {
+                lista = await contexto.Articulos.Where(criterio).ToListAsync();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return lista;
+        }
 
     }
 }
