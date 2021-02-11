@@ -45,7 +45,7 @@
                     @*Costo*@
                     <div class="form-group">
                         <label>Costo</label>
-                        <InputNumber @bind-Value="articulos.Costo" class="form-control" />
+                        <InputNumber @bind-Value="articulos.Costo" @onfocusout="CalcularValorInventario" class="form-control" />
                         <ValidationMessage For="(() => articulos.Costo)" />
                     </div>
 
@@ -88,6 +88,13 @@
     protected override void OnInitialized()
     {
         Nuevo();
+    }
+
+    private void CalcularValorInventario()
+    {
+        double Resultado = (articulos.Existencia * articulos.Costo);
+
+        articulos.ValorInventario = Resultado;
     }
 
     public void Nuevo()
