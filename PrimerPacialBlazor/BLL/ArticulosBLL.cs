@@ -75,6 +75,24 @@ namespace PrimerPacialBlazor.BLL
                 return await Modificar(articulos);
         }
 
+        //Buscar
+        public async Task<Articulos> Buscar(int id)
+        {
+            Articulos articulos;
+            try
+            {
+                articulos = await contexto.Articulos.FindAsync(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return articulos;
+        }
+
+
+
 
     }
 }
