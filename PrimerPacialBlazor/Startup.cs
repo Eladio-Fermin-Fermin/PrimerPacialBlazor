@@ -1,3 +1,4 @@
+using Blazored.Toast;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,10 @@ namespace PrimerPacialBlazor
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+
+            //Se instalo BlarzoredToast
+            services.AddBlazoredToast();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
